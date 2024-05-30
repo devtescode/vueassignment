@@ -161,6 +161,7 @@ defineProps(['recipedetails']);
 .btn-53:before {
   border: 0 solid;
   box-sizing: border-box;
+  
 }
 
 .btn-53 {
@@ -179,6 +180,7 @@ defineProps(['recipedetails']);
   padding: 0;
   width: 90%;
   margin: auto;
+  
 }
 
 .btn-53:disabled {
