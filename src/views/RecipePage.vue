@@ -35,15 +35,22 @@ onMounted(() => {
       />
     </div>
     <div class="row">
-      <RecipeCard
-        v-for="recipe in filteredRecipes"
-        :key="recipe.id"
-        :recipedetails="recipe"
-      />
+      <template v-if="filteredRecipes.length > 0">
+        <RecipeCard
+          v-for="recipe in filteredRecipes"
+          :key="recipe.id"
+          :recipedetails="recipe"
+        />
+      </template>
+      <template v-else>
+        <p class="text-center mt-4 text-danger">No recipes available</p>
+      </template>
     </div>
   </div>
 </template>
 
 <style scoped>
-
+.text-center {
+  text-align: center;
+}
 </style>
