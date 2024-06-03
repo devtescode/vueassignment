@@ -35,26 +35,27 @@ const updateMe = (me) => {
 </script>
 
 <template>
-  <h1>Recipes</h1>
+  <!-- <h1>Recipes</h1> -->
   count {{ count }}
   <div class="container">
-    <div class="col-md-3 col-sm-12 mb-4">
+    <div class="col-md-12 col-sm-12 mb-4">
       <input type="text" class="form-control" placeholder="Search" v-model="searchQuery" />
     </div>
     <div class="row">
       <template v-if="filteredRecipes.length > 0">
-        <!-- <RecipeCard
+        <RecipeCard
           v-for="recipe in filteredRecipes"
           :key="recipe.id"
           :recipedetails="recipe"
-        /> -->
+        />
 
-        <RecipeCard
+        <!-- <RecipeCard
+        
           v-for="(recipe, index) in recipes"
           :key="index"
           :recipedetails="recipe"
           @update-favourites="updateMe"
-        />
+        /> -->
       </template>
       <template v-else>
         <p class="text-center mt-4 text-danger">No recipes available</p>
