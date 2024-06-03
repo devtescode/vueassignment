@@ -6,10 +6,43 @@
 </script>
 
 <template>
-  <RouterLink :to="{name:'home'}" class="mx-2 ">Go to Home</RouterLink>
-  <RouterLink to="/about" class="mx-2">Go to About</RouterLink>
-  <RouterLink :to="`/user/${user.name}`" class="mx-2">Go to User</RouterLink>
-  <RouterLink to="/recipes" class="mx-2">Go to Recipes</RouterLink>
+  
+  
+  
+ 
+
+  <nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid text-center">
+    <!-- <a class="navbar-brand" href="#">Recipe</a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+            <RouterLink :to="{name:'home'}" class="mx-2 text-white">Go to Home</RouterLink>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <RouterLink to="/about" class="mx-2 text-white">Go to About</RouterLink>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <RouterLink :to="`/user/${user.name}`" class="mx-2 text-white">Go to User</RouterLink>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-disabled="true">
+             <RouterLink to="/recipes" class="mx-2 text-white">Go to Recipes</RouterLink>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   <RouterView/>
 </template>
 
