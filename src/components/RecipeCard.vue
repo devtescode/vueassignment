@@ -6,12 +6,12 @@
     >
       <img :src="recipedetails.image" width="100" class="card-img-top" alt="" />
       <!-- <button @click="emit('updateFavorite')" class="">Send item to parent</button> -->
-    
+      {{ updatedName || recipedetails.name }}
       <div class="">
         <p class="card-title ratingdiv">{{ recipedetails.rating }}</p>
       </div>
       <div class="card-body">
-        <p class="card-title">{{ recipedetails.name }}</p>
+        <!-- <p class="card-title">{{ recipedetails.name }}</p> -->
         <p class="card-title text-danger">{{ recipedetails.cookTimeMinutes }} mins</p>
         <div class="text-danger">
           <i class="ri-star-line"></i>
@@ -32,7 +32,8 @@
         class="btn-53 mt-2"      
         type="button"
         :data-bs-toggle="'modal'"
-        :data-bs-target="'#modal' + recipedetails.id">
+        :data-bs-target="'#modal' + recipedetails.id"
+        >
             <div class="original">VIEW</div>
             <div class="letters">
               <span>V</span>
@@ -59,7 +60,8 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <RecipeModal :recipedetails="recipedetails" />
+    <!-- <RecipeModal/> -->
+      <RecipeModal :recipelist="recipedetails" @update-name-to-parent="updateName"/>
     </div>
   </div>
 </template>
@@ -67,17 +69,23 @@
 <script setup>
 import { ref } from 'vue';
 import RecipeModal from './RecipeModal.vue';
-defineProps(['recipedetails']);
+const props = defineProps(['recipedetails']);
 const emit = defineEmits(['updateFavourites', 'changeName'])
 const added = ref(false)
 const sendItem =()=>{
   // emit('updateName', ['apple', 'banana'])
   emit('changeName')
 }
+console.log(props.recipedetails);
 
 const togglefave=()=>{
   emit('updateFavourites', added.value)
   added.value=!added.value
+}
+const updatedName = ref('')
+const updateName = (name)=>{
+  console.log(name)
+  updatedName.value = name
 }
 </script>
 
